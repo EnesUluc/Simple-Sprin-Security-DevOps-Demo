@@ -1,0 +1,23 @@
+#docker-compose --version
+#docker-compose up | docker-compose  up -d
+#docker-compose -f my-app.yaml up
+#docker-compose down
+#docker-compose restart
+#docker-compose ps
+
+#restart: on-failure ->Container çökmesi halinde otomatik yeniden başlasın. restart: on-failure:3 şeklinde yazarsan en fazla 3 kez dener.
+#restart: no  -> Deafult olandır.Container çalışırken bir hata olursa yeniden başlatılmaz.
+#restart: unless-stopped ->Konteyner, hata verse de, sistem yeniden başlatılsa da hep tekrar başlar.
+#restart: always ->  Konteyner ne olursa olsun her zaman yeniden başlatılır.
+
+#docker compose watch ->Kodda değişiklik yapınca, Docker konteyner otomatik olarak yeniden başlasın" işini yapar.yml de de yazılabilir bu özellik.
+
+
+
+services:
+  backend_web:
+    container_name: username-enes-password-1907
+    restart: on-failure
+    build: ./
+    ports:
+      - "8080:8080"
